@@ -1,9 +1,11 @@
 // Passing player selection value and styling icons
 const playerChoiceEl = document.querySelector('#playerChoice');
+const computer = new ComputerChoice();
+const result = new ShowResult();
 
 class PlayerChoice {
   constructor() {
-    this._playerChoicesArray = this._playerChoices();
+    this._playerChoicesArray = this._playerChoicesArray();
     this._init();
   }
 
@@ -11,7 +13,7 @@ class PlayerChoice {
     this._addEvent();
   }
 
-  _playerChoices() {
+  _playerChoicesArray() {
     const playerRock = document.querySelector('#playerRock');
     const playerPaper = document.querySelector('#playerPaper');
     const playerScissors = document.querySelector('#playerScissors');
@@ -29,6 +31,12 @@ class PlayerChoice {
         // Add 'selected' styling & playerChoice
         choice.classList.add('selected');
         playerChoiceEl.textContent = ` --- ${playerChoice}`;
+
+        // Display computer choice
+        const ComputerChoice = computer.displayComputerChoice();
+
+        // Display Result
+        result.updateScore(playerChoice.toLowerCase(), ComputerChoice.toLowerCase());
       });
     });
   }

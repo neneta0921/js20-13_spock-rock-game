@@ -1,40 +1,18 @@
-import { startConfetti, stopConfetti, removeConfetti } from './confetti.js';
+import { startConfetti, stopConfetti, removeConfetti } from './venders/confetti.js';
 
-const playerScoreEl = document.getElementById('playerScore');
-const playerChoiceEl = document.getElementById('playerChoice');
-const computerScoreEl = document.getElementById('computerScore');
-const computerChoiceEl = document.getElementById('computerChoice');
-const resultText = document.getElementById('resultText');
-
-const playerRock = document.getElementById('playerRock');
-const playerPaper = document.getElementById('playerPaper');
-const playerScissors = document.getElementById('playerScissors');
-const playerLizard = document.getElementById('playerLizard');
-const playerSpock = document.getElementById('playerSpock');
-
-const computerRock = document.getElementById('computerRock');
-const computerPaper = document.getElementById('computerPaper');
-const computerScissors = document.getElementById('computerScissors');
-const computerLizard = document.getElementById('computerLizard');
-const computerSpock = document.getElementById('computerSpock');
-
-const allGameIcons = document.querySelectorAll('.far');
-
-const choices = {
-  rock: { name: 'Rock', defeats: ['scissors', 'lizard'] },
-  paper: { name: 'Paper', defeats: ['rock', 'spock'] },
-  scissors: { name: 'Scissors', defeats: ['paper', 'lizard'] },
-  lizard: { name: 'Lizard', defeats: ['paper', 'spock'] },
-  spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
-};
+const playerScoreEl = document.querySelector('#playerScore');
+const playerChoiceEl = document.querySelector('#playerChoice');
+const computerScoreEl = document.querySelector('#computerScore');
+const computerChoiceEl = document.querySelector('#computerChoice');
+const resultText = document.querySelector('#resultText');
 
 let playerScoreNumber = 0;
 let computerScoreNumber = 0;
 let computerChoice = '';
 
-
 // Reset all 'selected' icons
 function resetSelected() {
+  const allGameIcons = document.querySelectorAll('.far');
   allGameIcons.forEach((icon) => {
     icon.classList.remove('selected');
   });
@@ -77,6 +55,12 @@ function computerRandomChoice() {
 
 // Add 'selected' styling & computerChoice
 function displayComputerChoice() {
+  const computerRock = document.querySelector('#computerRock');
+  const computerPaper = document.querySelector('#computerPaper');
+  const computerScissors = document.querySelector('#computerScissors');
+  const computerLizard = document.querySelector('#computerLizard');
+  const computerSpock = document.querySelector('#computerSpock');
+
   switch (computerChoice) {
     case 'rock':
       computerRock.classList.add('selected');
@@ -105,17 +89,26 @@ function displayComputerChoice() {
 
 // Check result, increase scores, update resultText
 function updateScore(playerChoice) {
+  const choices = {
+    rock: { name: 'Rock', defeats: ['scissors', 'lizard'] },
+    paper: { name: 'Paper', defeats: ['rock', 'spock'] },
+    scissors: { name: 'Scissors', defeats: ['paper', 'lizard'] },
+    lizard: { name: 'Lizard', defeats: ['paper', 'spock'] },
+    spock: { name: 'Spock', defeats: ['scissors', 'rock'] },
+  };
+
   if (playerChoice === computerChoice) {
     resultText.textContent = "It's a tie.";
   } else {
     const choice = choices[playerChoice];
+    console.log(choice);
     if (choice.defeats.indexOf(computerChoice) > -1) {
-      resultText.textContent = "You Won!";
+      resultText.textContent = 'You Won!';
       playerScoreNumber++;
       playerScoreEl.textContent = playerScoreNumber;
       startConfetti();
     } else {
-      resultText.textContent = "Your Lost!";
+      resultText.textContent = 'Your Lost!';
       computerScoreNumber++;
       computerScoreEl.textContent = computerScoreNumber;
     }
@@ -133,6 +126,13 @@ function checkResult(playerChoice) {
 // Passing player selection value and styling icons
 function select(playerChoice) {
   checkResult(playerChoice);
+
+  const playerRock = document.querySelector('#playerRock');
+  const playerPaper = document.querySelector('#playerPaper');
+  const playerScissors = document.querySelector('#playerScissors');
+  const playerLizard = document.querySelector('#playerLizard');
+  const playerSpock = document.querySelector('#playerSpock');
+
   // Add 'selected' styling & playerChoice
   switch (playerChoice) {
     case 'rock':

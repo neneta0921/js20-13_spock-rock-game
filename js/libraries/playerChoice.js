@@ -23,9 +23,21 @@ class PlayerChoice {
     return playerChoicesArray;
   }
 
+  // Reset all 'selected' icons
+  _resetSelected() {
+    const allGameIcons = document.querySelectorAll('.far');
+
+    allGameIcons.forEach((icon) => {
+      icon.classList.remove('selected');
+    });
+    stopConfetti();
+    removeConfetti();
+  }
+
   _addEvent() {
     this._playerChoicesArray.forEach((choice) => {
       choice.addEventListener('click', () => {
+        this._resetSelected();
         const playerChoice = choice.getAttribute('title');
 
         // Add 'selected' styling & playerChoice

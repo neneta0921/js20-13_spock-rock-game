@@ -9,20 +9,10 @@ let playerScoreNumber = 0;
 let computerScoreNumber = 0;
 let computerChoice = '';
 
-// Reset all 'selected' icons
-function resetSelected() {
-  const allGameIcons = document.querySelectorAll('.far');
-  allGameIcons.forEach((icon) => {
-    icon.classList.remove('selected');
-  });
-  stopConfetti();
-  removeConfetti();
-}
-
 // Reset score & playerChoice/computerChoice
 function resetAll() {
   // Reset Css and Animation
-  resetSelected();
+  // resetSelected();
   // Reset Score
   playerScoreNumber = 0;
   computerScoreNumber = 0;

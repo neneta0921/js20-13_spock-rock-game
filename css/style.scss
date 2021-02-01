@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -9,18 +9,9 @@ body {
   min-height: 100vh;
   background-color: whitesmoke;
   font-family: Lato, sans-serif;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-container {
@@ -28,26 +19,16 @@ body {
   height: 600px;
   background-color: white;
   border-radius: 7px;
-  -webkit-box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
-          box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.5);
 }
 
 .header {
   background: dodgerblue;
   border-top-left-radius: 7px;
   border-top-left-radius: 7px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 h1 {
@@ -66,10 +47,7 @@ h2 {
 .far {
   font-size: 50px;
   margin-right: 40px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 #player .far,
@@ -80,7 +58,7 @@ h2 {
 
 #computer .far,
 #computer .choice {
-  color: #eb2b34;
+  color: rgb(235, 43, 52);
 }
 
 #player .far:last-of-type,
@@ -99,18 +77,9 @@ h2 {
 }
 
 .result-container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .result-text {
@@ -125,15 +94,19 @@ h2 {
     width: 95%;
     height: 580px;
   }
+
   h1 {
     font-size: 24px;
   }
+
   .player-container {
     margin: 50px 0 25px 25px;
   }
+
   .far {
     margin-right: 20px;
   }
+
   .reset-icon {
     margin-top: 25px;
     margin-left: 25px;
@@ -145,20 +118,24 @@ h2 {
   .game-container {
     height: 550px;
   }
+
   h1 {
     font-size: 22px;
   }
+
   .player-container {
     margin: 43px 0 25px 20px;
   }
+
   .far {
     font-size: 43px;
   }
+
   .reset-icon {
     margin-top: 15px;
   }
+
   .result-container {
     margin: 0 20px;
   }
 }
-/*# sourceMappingURL=style.css.map */

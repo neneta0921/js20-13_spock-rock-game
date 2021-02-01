@@ -1,7 +1,7 @@
 import { startConfetti, stopConfetti, removeConfetti } from './venders/confetti.js';
 
 const playerScoreEl = document.querySelector('#playerScore');
-const playerChoiceEl = document.querySelector('#playerChoice');
+
 const computerScoreEl = document.querySelector('#computerScore');
 const computerChoiceEl = document.querySelector('#computerChoice');
 const resultText = document.querySelector('#resultText');
@@ -126,4 +126,6 @@ function checkResult(playerChoice) {
 // On startup, set initial values
 resetAll();
 
-new PlayerChoice();
+const playerChoice = new PlayerChoice();
+const player = playerChoice._playerChoice;
+console.log(player);

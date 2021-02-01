@@ -1,6 +1,4 @@
 // Passing computer selection value and styling icons
-const computerChoiceEl = document.querySelector('#computerChoice');
-
 class ComputerChoice {
   constructor() {
     this._computerChoicesArray = this._computerChoicesArray();
@@ -33,13 +31,8 @@ class ComputerChoice {
     return computerChoice;
   }
 
-  displayComputerChoice() {
+  getComputerChoice() {
     const computerChoice = this._computerRandomChoice();
-    const title = computerChoice.getAttribute('title');
-
-    // Add 'selected' styling & computerChoice
-    computerChoice.classList.add('selected');
-    computerChoiceEl.textContent = ` --- ${title}`;
-    return title;
+    return computerChoice;
   }
 }

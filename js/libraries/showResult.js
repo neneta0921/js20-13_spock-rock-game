@@ -1,12 +1,3 @@
-const playerScoreEl = document.querySelector('#playerScore');
-
-const computerScoreEl = document.querySelector('#computerScore');
-const resultText = document.querySelector('#resultText');
-
-let playerScoreNumber = 0;
-let computerScoreNumber = 0;
-let computerChoice = '';
-
 class ShowResult {
   _choices() {
     const choices = {

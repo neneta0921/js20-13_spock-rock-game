@@ -1,10 +1,9 @@
 // Passing player selection value and styling icons
-const playerChoiceEl = document.querySelector('#playerChoice');
-const computer = new ComputerChoice();
-const result = new ShowResult();
-
 class PlayerChoice {
-  constructor() {
+  constructor(computer, result, reset) {
+    this.computer = computer;
+    this.result = result;
+    this.reset = reset;
     this._playerChoicesArray = this._playerChoicesArray();
     this._init();
   }
@@ -23,32 +22,31 @@ class PlayerChoice {
     return playerChoicesArray;
   }
 
-  // Reset all 'selected' icons
-  _resetSelected() {
-    const allGameIcons = document.querySelectorAll('.far');
-
-    allGameIcons.forEach((icon) => {
-      icon.classList.remove('selected');
-    });
-    stopConfetti();
-    removeConfetti();
+  // Display Choice
+  _displayChoice(choice, title, choiceEl) {
+    // Add 'selected' styling & computerChoice
+    choice.classList.add('selected');
+    choiceEl.textContent = ` --- ${title}`;
   }
 
   _addEvent() {
-    this._playerChoicesArray.forEach((choice) => {
-      choice.addEventListener('click', () => {
-        this._resetSelected();
-        const playerChoice = choice.getAttribute('title');
+    this._playerChoicesArray.forEach((playerChoice) => {
+      playerChoice.addEventListener('click', () => {
+        // reset styles
+        console.log(this);
+        this.reset.resetSelected();
 
         // Add 'selected' styling & playerChoice
-        choice.classList.add('selected');
-        playerChoiceEl.textContent = ` --- ${playerChoice}`;
+        const playerTitle = playerChoice.getAttribute('title');
+        this._displayChoice(playerChoice, playerTitle, playerChoiceEl);
 
-        // Display computer choice
-        const ComputerChoice = computer.displayComputerChoice();
+        // Add 'selected' styling & computerChoice
+        const computerChoice = this.computer.getComputerChoice();
+        const computerTitle = computerChoice.getAttribute('title');
+        this._displayChoice(computerChoice, computerTitle, computerChoiceEl);
 
         // Display Result
-        result.updateScore(playerChoice.toLowerCase(), ComputerChoice.toLowerCase());
+        this.result.updateScore(playerTitle.toLowerCase(), computerTitle.toLowerCase());
       });
     });
   }
